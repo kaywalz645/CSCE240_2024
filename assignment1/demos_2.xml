@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<demographics id="23sp">
+  <patient id="FFFFD">
+    <weight>138</weight>
+    <birthday>
+      <month>3</month>
+      <day>1</day>
+      <year>2002</year>
+    </birthday>
+    <ethnicities>
+      <ethnicity id="W">White</ethnicity>
+      <ethnicity id="B">African American</ethnicity>
+    </ethnicities>
+  </patient>
+  <patient id="FFFFC">
+    <birthday>
+      <month>10</month>
+      <day>30</day>
+      <year>1998</year>
+    </birthday>
+    <ethnicities>    </ethnicities>
+    <weight>121</weight>
+    <smoker />
+  </patient>
+  <patient id="FFFFB">
+    <ethnicities>
+      <ethnicity id="P">Native Islander</ethnicity>
+      <ethnicity id="A">Asian</ethnicity>
+      <ethnicity id="H">Hispanic</ethnicity>
+    </ethnicities>
+    <birthday>
+      <month>4</month>
+      <day>17</day>
+      <year>2005</year>
+    </birthday>
+    <weight>117</weight>
+  </patient>
+</demographics>
