@@ -2,25 +2,21 @@
 #include <iostream>
 #include <string>
 int main() {
-    // std::string input; 
-    
-    // std::cin >> input;
-    // std::cout << input << std::endl;
-
-
-    std::cout << "<?xml version=\"1.0\"encoding=\"UTF-8\"?>";
+    std::cout << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
     std::string demographics_id;
     std::cin >> demographics_id;
-    std::cout << "\n<demographics id=\"" << demographics_id << "\">" << std::endl;
+    std::cout << "\n<demographics id=\""
+    << demographics_id << "\">" << std::endl;
     int numOfPatients = 0;
     std::cin >> numOfPatients;
+    std::cout << numOfPatients << std::endl;
 
     // Patient Data
     std::string patientID;
     int birthMonth, birthDay, birthYear;
     std::string weight;
     int smoker;
-    std::string ethnicity;
+    int ethnicity;
 
     // Identifiers
     std::string birthDateID = "B";
@@ -29,46 +25,65 @@ int main() {
     std::string ethnicityID = "E";
 
 
-    for(int i = 0; i < numOfPatients; ++i){
+    for (int i = 0; i < numOfPatients; ++i) {
         std::cin >> patientID;
         std::cout << "\t<patient id=\"" << patientID << "\">" << std::endl;
-        std::string temp;
-        std::cin >> temp;
-        for(int ii = 0; i < 4; ++ii){
-            if(temp == birthDateID){
-                for(int iii = 0; i < 3; ++iii){
+        for (int ii = 0; ii < 4; ++ii) {
+            std::string temp;
+            std::cin >> temp;
+            if (temp == birthDateID) {
                     std::cin >> birthMonth;
                     std::cin >> birthDay;
                     std::cin >> birthYear;
-                    std::cout << "<birthday>\n\t\t<month>" << birthMonth << "</month>\n\t\t" << birthYear
-                    
-                }
-            }
-// <patient id="FFFFF">
-//     <birthday>
-//       <month>3</month>
-//       <day>1</day>
-//       <year>2002</year>
-//     </birthday>
-//     <weight>144</weight>
-//     <ethnicities>
-//       <ethnicity id="N">American or Alaskan Native</ethnicity>
-//     </ethnicities>
-//   </patient>
-            else if(temp == weightID){
+                    if (birthYear > 24) {
+                        birthYear += 1900;
+                    } else if (birthYear <= 24) {
+                        birthYear += 2000;
+                    }
+                    std::cout << "\t<birthday>\n\t\t<month>" << birthMonth
+                    << "</month>\n\t\t<day>" << birthDay <<
+                    "</day>\n\t\t<year>" << birthYear <<
+                    "</year>\n\t</birthday>" << std::endl;
+            } else if (temp == weightID) {
                 std::cin >> weight;
-                std::cout << "<weight>" << weight << "</weight";
-            }
-            else if(temp == smokerID){
+                std::cout << "\t<weight>" << weight << "</weight>" << std::endl;
+            } else if (temp == smokerID) {
                 std::cin >> smoker;
-                if(smoker = 1){
-                    std::cout << "<smoker />";
+                if (smoker == 1) {
+                    std::cout << "\t<smoker />" << std::endl;
                 }
-            }
-            else if(temp == ethnicityID){
+            } else if (temp == ethnicityID) {
                 std::cin >> ethnicity;
+                std::cout << "\t<ethnicities>" << std::endl;
+                for (int iv = 0; iv < ethnicity; ++iv) {
+                    std::string t;
+                    std::cin >> t;
+                    if (t == "N") {
+                        std::cout << "\t<ethnicity id=\""<< t <<
+                        "\">American or Alaskan Native</ethnicity>"
+                        << std::endl;
+                    } else if (t == "A") {
+                        std::cout << "\t<ethnicity id=\""<< t <<
+                        "\">Asian</ethnicity>" << std::endl;
+                    } else if (t == "B") {
+                        std::cout << "\t<ethnicity id=\""<< t <<
+                        "\">African American</ethnicity>" << std::endl;
+                    } else if (t == "H") {
+                        std::cout << "\t<ethnicity id=\""<< t <<
+                        "\">Hispanic</ethnicity>" << std::endl;
+                    } else if (t == "P") {
+                        std::cout << "\t<ethnicity id=\""<< t <<
+                        "\">Native Islander</ethnicity>" << std::endl;
+                    } else if (t == "W") {
+                        std::cout << "\t<ethnicity id=\""<< t <<
+                        "\">White</ethnicity>" << std::endl;
+                    }
+                }
+                std::cout << "\t</ethnicities>" << std::endl;
             }
         }
+        std::cout << "\t</patient>" << std::endl;
     }
+    std::cout << "\n</demographics>" << std::endl;
     return 0;
 }
