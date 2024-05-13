@@ -2,41 +2,58 @@
 #include <iostream>
 #include <string>
 int main() {
-    std::string inputLine;
-    std::cout << "<demographics>\n";
+    // std::string input; 
+    
+    // std::cin >> input;
+    // std::cout << input << std::endl;
 
-    // Read until end of input
-    while (std::getline(std::cin, inputLine)) {
-        if (inputLine.empty()) continue;  // Skip empty lines
 
-        std::cout << "\t<patient>\n";
+    std::cout << "<?xml version=\"1.0\"encoding=\"UTF-8\"?>";
+    std::string demographics_id;
+    std::cin >> demographics_id;
+    std::cout << "\n<demographics id=\"" << demographics_id << "\">" << std::endl;
+    int numOfPatients = 0;
+    std::cin >> numOfPatients;
 
-        // Parse patient data
-        String patientID;
+    // Patient Data
+    std::string patientID;
+    int birthMonth, birthDay, birthYear;
+    std::string weight;
+    int smoker;
+    std::string ethnicity;
 
-        int birthMonth, birthDay, birthYear, weight, smoker;
-        std::string ethnicity;
+    // Identifiers
+    std::string birthDateID = "B";
+    std::string weightID = "W";
+    std::string smokerID = "S";
+    std::string ethnicityID = "E";
 
-        std::sscanf(inputLine.c_str(), "patient id %d B %d %d %d W %d S %d E", 
-            &patientID, &birthMonth, &birthDay, &birthYear, &weight, &smoker);
 
-        std::cout << "\t\t<patient_id>" << patientID << "</patient_id>\n";
-        std::cout << "\t\t<birth_date>" << birthMonth << "/" << birthDay << "/" << birthYear << "</birth_date>\n";
-        std::cout << "\t\t<weight>" << weight << " lbs</weight>\n";
-        std::cout << "\t\t<smoker>" << (smoker == 1 ? "smoker" : "non-smoker") << "</smoker>\n";
-        std::cout << "\t\t<ethnicities>\n";
-
-        // Read and output ethnicities
-        while (std::cin >> inputLine && inputLine != "...") {
-            std::cout << "\t\t\t<ethnicity>" << inputLine << "</ethnicity>\n";
-        }
-
-        std::cout << "\t\t</ethnicities>\n";
-        std::cout << "\t</patient>\n";
+    for(int i = 0; i < numOfPatients; ++i){
+        std::cin >> patientID;
+        std::cout << "\t<patient id=\"" << patientID << "\">" << std::endl;
+        std::string temp;
+        std::cin >> temp;
+        // for(int ii = 0; i < 4; ++ii){
+        //     if(temp == birthDateID){
+        //         for(int iii = 0; i < 3; ++iii){
+                    
+        //         }
+        //     }
+        //     else if(temp == weightID){
+        //         std::cin >> weight;
+        //         std::cout << "<weight>" << weight << "</weight";
+        //     }
+        //     else if(temp == smokerID){
+        //         std::cin >> smoker;
+        //         if(smoker = 1){
+        //             std::cout << "<smoker />";
+        //         }
+        //     }
+        //     else if(temp == ethnicityID){
+        //         std::cin >> ethnicity;
+        //     }
+        // }
     }
-
-    std::cout << "</demographics>\n";
-
     return 0;
-
 }
