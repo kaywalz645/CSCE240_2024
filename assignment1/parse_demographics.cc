@@ -34,26 +34,41 @@ int main() {
         std::cout << "\t<patient id=\"" << patientID << "\">" << std::endl;
         std::string temp;
         std::cin >> temp;
-        // for(int ii = 0; i < 4; ++ii){
-        //     if(temp == birthDateID){
-        //         for(int iii = 0; i < 3; ++iii){
+        for(int ii = 0; i < 4; ++ii){
+            if(temp == birthDateID){
+                for(int iii = 0; i < 3; ++iii){
+                    std::cin >> birthMonth;
+                    std::cin >> birthDay;
+                    std::cin >> birthYear;
+                    std::cout << "<birthday>\n\t\t<month>" << birthMonth << "</month>\n\t\t" << birthYear
                     
-        //         }
-        //     }
-        //     else if(temp == weightID){
-        //         std::cin >> weight;
-        //         std::cout << "<weight>" << weight << "</weight";
-        //     }
-        //     else if(temp == smokerID){
-        //         std::cin >> smoker;
-        //         if(smoker = 1){
-        //             std::cout << "<smoker />";
-        //         }
-        //     }
-        //     else if(temp == ethnicityID){
-        //         std::cin >> ethnicity;
-        //     }
-        // }
+                }
+            }
+// <patient id="FFFFF">
+//     <birthday>
+//       <month>3</month>
+//       <day>1</day>
+//       <year>2002</year>
+//     </birthday>
+//     <weight>144</weight>
+//     <ethnicities>
+//       <ethnicity id="N">American or Alaskan Native</ethnicity>
+//     </ethnicities>
+//   </patient>
+            else if(temp == weightID){
+                std::cin >> weight;
+                std::cout << "<weight>" << weight << "</weight";
+            }
+            else if(temp == smokerID){
+                std::cin >> smoker;
+                if(smoker = 1){
+                    std::cout << "<smoker />";
+                }
+            }
+            else if(temp == ethnicityID){
+                std::cin >> ethnicity;
+            }
+        }
     }
     return 0;
 }
