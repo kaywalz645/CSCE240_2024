@@ -24,7 +24,6 @@ int main() {
     std::string smokerID = "S";
     std::string ethnicityID = "E";
 
-
     for (int i = 0; i < numOfPatients; ++i) {
         std::cin >> patientID;
         std::cout << "\t<patient id=\"" << patientID << "\">" << std::endl;
