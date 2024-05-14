@@ -9,7 +9,6 @@ int main() {
     << demographics_id << "\">" << std::endl;
     int numOfPatients = 0;
     std::cin >> numOfPatients;
-    std::cout << numOfPatients << std::endl;
 
     // Patient Data
     std::string patientID;
@@ -58,23 +57,23 @@ int main() {
                     std::string t;
                     std::cin >> t;
                     if (t == "N") {
-                        std::cout << "\t<ethnicity id=\""<< t <<
+                        std::cout << "\t\t<ethnicity id=\""<< t <<
                         "\">American or Alaskan Native</ethnicity>"
                         << std::endl;
                     } else if (t == "A") {
-                        std::cout << "\t<ethnicity id=\""<< t <<
+                        std::cout << "\t\t<ethnicity id=\""<< t <<
                         "\">Asian</ethnicity>" << std::endl;
                     } else if (t == "B") {
-                        std::cout << "\t<ethnicity id=\""<< t <<
+                        std::cout << "\t\t<ethnicity id=\""<< t <<
                         "\">African American</ethnicity>" << std::endl;
                     } else if (t == "H") {
-                        std::cout << "\t<ethnicity id=\""<< t <<
+                        std::cout << "\t\t<ethnicity id=\""<< t <<
                         "\">Hispanic</ethnicity>" << std::endl;
                     } else if (t == "P") {
-                        std::cout << "\t<ethnicity id=\""<< t <<
+                        std::cout << "\t\t<ethnicity id=\""<< t <<
                         "\">Native Islander</ethnicity>" << std::endl;
                     } else if (t == "W") {
-                        std::cout << "\t<ethnicity id=\""<< t <<
+                        std::cout << "\t\t<ethnicity id=\""<< t <<
                         "\">White</ethnicity>" << std::endl;
                     }
                 }
