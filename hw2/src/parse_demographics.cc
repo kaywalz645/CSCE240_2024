@@ -61,11 +61,11 @@ std::size_t ParseNumEthnicities(const std::string& patient_id,
             index += 2;
             continue;
 
-            case 'B':
+            case 'B': {
             index += 4;
             continue;
-
-            case 'E':
+            }
+            case 'E': {
             ++index;
             num_eth = stoi(values[index]);
             if (i == 0 && errors) {
@@ -78,9 +78,11 @@ std::size_t ParseNumEthnicities(const std::string& patient_id,
             }
             ++index;
             break;
+            }
         }
         return num_eth;
     }
+    return 0;
 }
 
 
@@ -160,6 +162,7 @@ std::size_t ParseEthnicityValues(const std::string& patient_id,
         }
         return num_eth;
     }
+    return 0;
 }
 
 

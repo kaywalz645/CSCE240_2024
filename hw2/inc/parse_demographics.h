@@ -1,11 +1,9 @@
-//Copyright 2024 Kaylee Walz
+// Copyright 2024 Kaylee Walz
 
-#ifndef HW2_INC_PARSE_DEMOGRAPHICS
-#define HW2_INC_PARSE_DEMOGRAPHICS
+#ifndef HW2_INC_PARSE_DEMOGRAPHICS_H_
+#define HW2_INC_PARSE_DEMOGRAPHICS_H_
 #include <cstddef>
 #include <string>
-
-
 
 // Describes any exceptional execution paths of the following functions, or the
 // lack thereof (kNoErrors)
@@ -15,7 +13,6 @@ enum class ParseErrors {
   kNoEthnicities,
   kMissingPatient
 };
-
 
 // Translates the above enum values into strings for printing
 //
@@ -34,7 +31,6 @@ inline const std::string ToString(const ParseErrors& error) {
       return std::string();
   }
 }
-
 
 // Returns the number of patients found in the string array parameter values[]
 // as specified by the input format in hw2.pdf.
@@ -95,4 +91,4 @@ std::size_t ParseEthnicityValues(const std::string& patient_id,
                                  std::size_t size,
                                  char ethnicity_values[],
                                  ParseErrors* errors = nullptr);
-#endif //
+#endif //HW2_INC_PARSE_DEMOGRAPHICS_H_
