@@ -1,5 +1,10 @@
+//Copyright 2024 Kaylee Walz
+
+#ifndef HW2_INC_PARSE_DEMOGRAPHICS
+#define HW2_INC_PARSE_DEMOGRAPHICS
 #include <cstddef>
 #include <string>
+
 
 
 // Describes any exceptional execution paths of the following functions, or the
@@ -90,3 +95,4 @@ std::size_t ParseEthnicityValues(const std::string& patient_id,
                                  std::size_t size,
                                  char ethnicity_values[],
                                  ParseErrors* errors = nullptr);
+#endif //
