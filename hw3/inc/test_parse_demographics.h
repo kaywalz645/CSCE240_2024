@@ -4,7 +4,7 @@
 #define HW3_INC_TEST_PARSE_DEMOGRAPHICS_H_
 
 
-#include <hw3_sol/inc/parse_demographics.h>
+#include <hw3/inc/parse_demographics.h>
 
 #include <cstddef>
 #include <iostream>
