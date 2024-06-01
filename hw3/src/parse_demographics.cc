@@ -12,49 +12,55 @@ const std::string** ParseDemographics(const std::size_t rows,
     std::vector<const std::string*> demographics_vector; // Using a vector to manage memory easily
 
     for (std::size_t i = 0; i < rows; ++i) {
-        // Add patient ID
-        demographics_vector.push_back(new std::string(values[i][0]));
         std::cout << "---------NEW PATIENT: " << i << " ---------" << std::endl;
 
-        for (std::size_t j = 1; j < cols[i]; ++j) {
-            std::cout << "NEXT BOX: j: " << j << std::endl;
-            switch (values[i][j].front()) {
+        demographics_vector.push_back(new std::string(values[i][0])); 
+    
+        std::vector<std::string> dob;
+        std::vector<std::string> ethnicities;
+
+        std::size_t col_index = 1; //starts at the next index hopefully
+
+        while(col_index < cols[i] && std::string("BE").find(values[i][col_index].front())
+         != std::string::npos) {
+            switch (values[i][col_index].front()) {
                 case 'B': {
-                    std::cout << "Birthday Parse: j: " << j << std::endl;
+                    std::cout << "Birthday Parse: j: " << col_index << std::endl;
                     std::string* birthday = new std::string[3];
-                    if (j + 3 < cols[i]) { // Ensure there are enough elements
-                        birthday[0] = values[i][++j];
-                        birthday[1] = values[i][++j];
-                        birthday[2] = values[i][++j];
+                        ++col_index; //move to month
+                        birthday[0] = values[i][col_index];
+                        ++col_index; //move to date
+                        birthday[1] = values[i][col_index];
+                        ++col_index; //move to year
+                        birthday[2] = values[i][col_index];
                         demographics_vector.push_back(birthday);
-                        std::cout << "hiiiiii " << j << std::endl;
-                    } else {
-                        std::cerr << "Error: Not enough elements for birthday" << std::endl;
-                        delete[] birthday;
-                    }
+                        ++col_index; //move to E 
                     break;
                 }
                 case 'E': {
-                    std::cout << "Ethnicities Parse: j: " << j << std::endl;
-                    std::size_t n = std::stoi(values[i][++j]);
-                    if (n == 0) {
+                    ++col_index; //move to number of E
+                    std::cout << "Ethnicities Parse: j: " << col_index << std::endl;
+                    std::size_t num_eth = std::stoi(values[i][col_index]); //parse num of e
+                    if (num_eth == 0) {
                         demographics_vector.push_back(nullptr);
                     } else {
-                         if (j + n < cols[i]) { // Ensure there are enough elements
-                            std::string* ethnicities = new std::string[n];
-                            for (std::size_t k = 0; k < n; ++k) {
-                                ethnicities[k] = values[i][++j]; // Accessing the next element correctly
+                         if (col_index + num_eth < cols[i]) { // Ensure there are enough elements
+                            std::string* ethnicities = new std::string[num_eth];
+                            for (std::size_t k = 0; k < num_eth; ++k) {
+                                ethnicities[k] = values[i][++col_index]; //for each ethnicity save value
                             }
-                            demographics_vector.push_back(ethnicities);
+                            demographics_vector.push_back(ethnicities); //after finished save
                         } else {
                             std::cerr << "Error: Not enough elements for ethnicities" << std::endl;
                         }
                     }
+                    ++col_index; //move to next value like E or ID
                     break;
                 }
-                default:
-                    std::cerr << "Unexpected value type: " << values[i][j].front() << std::endl;
+                default: {
+                    std::cerr << "Unexpected value type: " << values[i][col_index].front() << std::endl;
                     break;
+                }
             }
         }
     }
