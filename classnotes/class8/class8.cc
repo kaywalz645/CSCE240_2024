@@ -25,7 +25,7 @@ int main(int argc, char* argv[]) {
 
     std::cout << "dyn_int" << dyn_int << std::endl;
     std::cout << "dyn_dbl" << dyn_dbl << std::endl;
-    std::cout << "dyn_char" << dyn_char << std::endl; //not printing right
+    std::cout << "dyn_char" << dyn_char << std::endl; 
 
     //char being weird so we stopped using it
     *dyn_int += 1;

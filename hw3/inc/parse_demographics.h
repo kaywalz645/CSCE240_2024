@@ -1,3 +1,7 @@
+//Copyright 2024 Kaylee Walz
+#ifndef HW3_INC_PARSE_DEMOGRAPHICS  // Start of include guard
+#define HW3_INC_PARSE_DEMOGRAPHICS
+
 #include <cstddef>
 #include <string>
 
@@ -55,3 +59,4 @@
 const std::string** ParseDemographics(const std::size_t rows,
                                       const std::size_t cols[],
                                       const std::string** values);
+#endif

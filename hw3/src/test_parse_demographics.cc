@@ -1,6 +1,6 @@
 // Copyright 2024 CSCE 240
 //
-#include <hw3_sol/inc/test_parse_demographics.h>
+#include <hw3/inc/test_parse_demographics.h>
 
 
 int main(int argc, char* argv[]) {
