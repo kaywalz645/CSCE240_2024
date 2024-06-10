@@ -13,6 +13,8 @@
 //   Bonus:
 //     Implicit conversion to std::string: 1, using Date::Date(std::string&)
 //
+#ifndef HW4_INC_DATE_H
+#define HW4_INC_DATE_H
 
 #include <istream>
 #include <ostream>
@@ -22,16 +24,11 @@
 class Date {
  public:
 
-  // Not explicitly tested, but you may want this for yourself; why is that?
-  //
   Date();
 
-
-  // Not explicity tested; implement for yourself if you need for Demographics
-  //
   Date(const std::string& month,
        const std::string& day,
-       const std::string& year) : month_(month), day_(day), year_(year) {
+       const std::string& year){
     // empty
   }
 
@@ -60,8 +57,8 @@ class Date {
 
 
   // Not explicitly tested; used to test Date constructors
-  const std::string& day() const;
   const std::string& month() const;
+  const std::string& day() const;
   const std::string& year() const;
 
 
@@ -76,6 +73,13 @@ class Date {
   //   mm-dd-yy or mm-dd-yyyy
   int operator-(const std::string& end_date);
 
+  private:
+    std::string month_;
+    std::string day_;
+    std::string year_;
+
+    void parseDate(const std::string& date);
+
 };
 
 
@@ -84,3 +88,4 @@ class Date {
 //            or
 //   mm-dd-yy or mm-dd-yyyy
 int operator-(const std::string& begin_date, const Date& end_date);
+#endif //Date
