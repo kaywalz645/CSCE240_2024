@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
   const std::string kExpected = "06-08-1999";
   const Date kTestDate(kExpected);
 
-  const std::string kActual = kExpected;
+  const std::string kActual = kExpected;//kTestDate
 
   if (kExpected == kActual && kExpected == static_cast<std::string>(kTestDate)) {
     std::cout << "    Passed! +0.5 points" << std::endl;

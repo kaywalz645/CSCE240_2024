@@ -37,7 +37,7 @@
   //
   Date::Date(const std::string& month,
        const std::string& day,
-       const std::string& year) : month_(month), day_(day), year_(year) {
+       const std::string& year): month_(month), day_(day), year_(year)  {
     // empty
   }
 

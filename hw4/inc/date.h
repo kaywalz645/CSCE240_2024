@@ -28,9 +28,7 @@ class Date {
 
   Date(const std::string& month,
        const std::string& day,
-       const std::string& year){
-    // empty
-  }
+       const std::string& year);
 
 
   // Accepts as parameters a string array's bounds, exclusive of the end
