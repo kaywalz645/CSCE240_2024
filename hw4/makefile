@@ -58,6 +58,11 @@ bin/test_date.o : src/test_date.cc inc/test_date.h inc/date.h
 bin/test_date_bonus.o : src/test_date_bonus.cc inc/date.h
 	$(compile) $@ $<
 
+run-test-date: bin/test_date
+	./test_date
+
+run-test-demo: bin/test_demographic
+	./test_demographic
 
 clean:
 	rm -f bin/* test-*
