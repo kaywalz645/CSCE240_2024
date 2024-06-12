@@ -24,6 +24,7 @@ class Date {
      const std::string& month() const;
      const std::string& day() const;
      const std::string& year() const;
+     std::string to_string() const;
 
 
      int operator-(const Date& end_date);

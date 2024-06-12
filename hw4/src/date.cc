@@ -65,3 +65,7 @@ int operator-(const std::string& begin_date, const Date& end_date) {
     Date temp(begin_date);
     return temp - end_date;
 }
+
+std::string Date::to_string() const {
+  return day_ + "-" + month_ + "-" + year_;
+}
