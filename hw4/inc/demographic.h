@@ -7,8 +7,10 @@
 //    + operator>>(std::istream&, Date&) : 1
 //    + operator<<(std::ostream&, Date&) : 1
 //
-
 #include <hw4/inc/date.h>
+#ifndef HW4_INC_DEMOGRAPHIC_H
+#define HW4_INC_DEMOGRAPHIC_H
+
 
 #include <istream>
 #include <ostream>
@@ -79,6 +81,14 @@ class Demographic {
   // Precondition: there exists a whitespace-delimited string of size 11 in the
   // form indicated above.
   std::istream* Insert(std::istream* in);
+
+  private:
+  int weight_;
+  bool smoker_;
+  std::string ethnicity_;
+  Date dob_;
+  std::string id_;
+  
 };
 
 
@@ -90,3 +100,4 @@ std::istream& operator>>(std::istream& lhs, Demographic& rhs);
 std::ostream& operator<<(std::ostream& lhs, const Demographic& rhs);
 
 std::ostream& operator<<(std::ostream& lhs, const Date& rhs);
+#endif
